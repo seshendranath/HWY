@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--List out all tasks here-->
+
+    <bean id="bookingFactLoad" class="com.homeaway.dataanalytics.task.BookingFactLoad">
+    </bean>
+
+    <!--More tasks can be added, see example below-->
+    <!--<bean id="exampleCassandraTask" class="com.homeaway.omnihub.task.SampleSparkTask2">-->
+    <!--</bean>-->
+
+</beans>

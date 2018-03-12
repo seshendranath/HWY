@@ -1,0 +1,860 @@
+{
+  "etl.config" : [ {
+    "key" : "DW_TRAVELER_TRAVELERORDERPAYMENT",
+    "value" : "dw_traveler.dbo.travelerorderpayment",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_TRAVELERORDERPAYMENTDISTRIBUTIONTYPE",
+    "value" : "dw_traveler.dbo.travelerorderpaymentdistributiontype",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_PAYMENTMETHODTYPE",
+    "value" : "dw_traveler.dbo.paymentmethodtype",
+    "type" : "variable"
+  }, {
+    "key" : "DW_INQUIRYSLAFACT",
+    "value" : "dw.dbo.inquiryslafact",
+    "type" : "variable"
+  }, {
+    "key" : "DW_CURRENCY",
+    "value" : "dw.dbo.currency",
+    "type" : "variable"
+  }, {
+    "key" : "DW_QUOTE",
+    "value" : "dw.dbo.quote",
+    "type" : "variable"
+  }, {
+    "key" : "DW_WEBSITEREFERRALMEDIUMSESSION",
+    "value" : "dw.dbo.websitereferralmediumsession",
+    "type" : "variable"
+  }, {
+    "key" : "DW_CUSTOMERATTRIBUTES",
+    "value" : "dw.dbo.customerattributes",
+    "type" : "variable"
+  }, {
+    "key" : "DW_LISTINGUNITATTRIBUTES",
+    "value" : "dw.dbo.listingunitattributes",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_PRODUCT",
+    "value" : "dw_traveler.dbo.product",
+    "type" : "variable"
+  }, {
+    "key" : "DW_ONLINEBOOKINGPROVIDERTYPE",
+    "value" : "dw.dbo.onlinebookingprovidertype",
+    "type" : "variable"
+  }, {
+    "key" : "DW_PERSONTYPE",
+    "value" : "dw.dbo.persontype",
+    "type" : "variable"
+  }, {
+    "key" : "DW_LISTINGUNIT",
+    "value" : "dw.dbo.listingunit",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_TRAVELERORDERPAYMENTDISTRIBUTIONAMOUNTTYPE",
+    "value" : "dw_traveler.dbo.travelerorderpaymentdistributionamounttype",
+    "type" : "variable"
+  }, {
+    "key" : "DW_CHANNEL",
+    "value" : "dw.dbo.channel",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_TRAVELERORDERITEM",
+    "value" : "dw_traveler.dbo.travelerorderitem",
+    "type" : "variable"
+  }, {
+    "key" : "DW_VW_QUOTEGROSSBOOKINGVALUE",
+    "value" : "dw.dbo.vw_quotegrossbookingvalue",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_TRAVELERORDERPAYMENTDISTRIBUTION",
+    "value" : "dw_traveler.dbo.travelerorderpaymentdistribution",
+    "type" : "variable"
+  }, {
+    "key" : "DW_QUOTEFACT",
+    "value" : "dw.dbo.quotefact",
+    "type" : "variable"
+  }, {
+    "key" : "DW_RESERVATION",
+    "value" : "dw.dbo.reservation",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_PRODUCTFULFILLMENT",
+    "value" : "dw_traveler.dbo.productfulfillment",
+    "type" : "variable"
+  }, {
+    "key" : "DW_BOOKINGVALUESOURCE",
+    "value" : "dw.dbo.bookingvaluesource",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_VISITORFACT",
+    "value" : "dw_traveler.dbo.visitorfact",
+    "type" : "variable"
+  }, {
+    "key" : "DW_BRAND",
+    "value" : "dw.dbo.brand",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_TRAVELERORDER",
+    "value" : "dw_traveler.dbo.travelerorder",
+    "type" : "variable"
+  }, {
+    "key" : "DW_AVERAGEKNOWNNIGHTLYBOOKINGVALUE",
+    "value" : "dw.dbo.averageknownnightlybookingvalue",
+    "type" : "variable"
+  }, {
+    "key" : "DW_TRAVELER_TRAVELERORDERPAYMENTDISTRIBUTIONTOACCOUNTTYPE",
+    "value" : "dw_traveler.dbo.travelerorderpaymentdistributiontoaccounttype",
+    "type" : "variable"
+  }, {
+    "key" : "DW_BRANDATTRIBUTES",
+    "value" : "dw.dbo.brandattributes",
+    "type" : "variable"
+  }, {
+    "key" : "DW_CURRENCYCONVERSION",
+    "value" : "dw.dbo.currencyconversion",
+    "type" : "variable"
+  }, {
+    "key" : "DW_LISTINGATTRIBUTES",
+    "value" : "dw.dbo.listingattributes",
+    "type" : "variable"
+  }, {
+    "key" : "DW_FACTS_BOOKINGFACT",
+    "value" : "dw_facts.dbo.bookingfact",
+    "type" : "variable"
+  }, {
+    "key" : "DW_CALENDAR",
+    "value" : "dw.dbo.calendar",
+    "type" : "variable"
+  }, {
+    "key" : "DW_LISTING",
+    "value" : "dw.dbo.listing",
+    "type" : "variable"
+  }, {
+    "key" : "DW_DESTINATIONATTRIBUTES",
+    "value" : "dw.dbo.destinationattributes",
+    "type" : "variable"
+  } ],
+  "etl.expressions" : [ {
+    "id" : 0,
+    "name" : "tmpTravelerorderpayment",
+    "desc" : "tmpTravelerorderpayment",
+    "expression" : "SELECT travelerorderpaymenttypename, travelerorderpaymentid, travelerorderpaymentstatusname, paymentdate, currencycode, amount, paymentmethodtypeid, travelerorderid FROM $DW_TRAVELER_TRAVELERORDERPAYMENT",
+    "alias" : "tmpTravelerorderpayment",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpTravelerorderpaymentdistributiontype",
+    "desc" : "tmpTravelerorderpaymentdistributiontype",
+    "expression" : "SELECT travelerorderpaymentdistributiontypeid, travelerorderpaymentdistributiontypename FROM $DW_TRAVELER_TRAVELERORDERPAYMENTDISTRIBUTIONTYPE",
+    "alias" : "tmpTravelerorderpaymentdistributiontype",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpPaymentmethodtype",
+    "desc" : "tmpPaymentmethodtype",
+    "expression" : "SELECT paymentcollectiontype, paymentmethodtypeid FROM $DW_TRAVELER_PAYMENTMETHODTYPE",
+    "alias" : "tmpPaymentmethodtype",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpInquiryslafact",
+    "desc" : "tmpInquiryslafact",
+    "expression" : "SELECT inquiryid, listingid, fullvisitorid, websitereferralmediumsessionid, visitid, inquirydate FROM $DW_INQUIRYSLAFACT",
+    "alias" : "tmpInquiryslafact",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpCurrency",
+    "desc" : "tmpCurrency",
+    "expression" : "SELECT currencyid, currencycode FROM $DW_CURRENCY",
+    "alias" : "tmpCurrency",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpQuote",
+    "desc" : "tmpQuote",
+    "expression" : "SELECT reservationid, quoteguid, currencycode, quoteid, bookingtypeid, dwlastupdatedate FROM $DW_QUOTE",
+    "alias" : "tmpQuote",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpWebsitereferralmediumsession",
+    "desc" : "tmpWebsitereferralmediumsession",
+    "expression" : "SELECT marketingmedium, websitereferralmediumsessionid, websitereferralmedium FROM $DW_WEBSITEREFERRALMEDIUMSESSION",
+    "alias" : "tmpWebsitereferralmediumsession",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpCustomerattributes",
+    "desc" : "tmpCustomerattributes",
+    "expression" : "SELECT customerattributesid, rowstartdate, customerid, persontype, rowenddate FROM $DW_CUSTOMERATTRIBUTES",
+    "alias" : "tmpCustomerattributes",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpListingunitattributes",
+    "desc" : "tmpListingunitattributes",
+    "expression" : "SELECT listingunitattributesid, listingunitid, rowstartdate, rowenddate FROM $DW_LISTINGUNITATTRIBUTES",
+    "alias" : "tmpListingunitattributes",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpProduct",
+    "desc" : "tmpProduct",
+    "expression" : "SELECT grossbookingvalueproductcategory, productid, productguid FROM $DW_TRAVELER_PRODUCT",
+    "alias" : "tmpProduct",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpOnlinebookingprovidertype",
+    "desc" : "tmpOnlinebookingprovidertype",
+    "expression" : "SELECT onlinebookingprovidertypeid, olbprovidergatewaytypedescription, listingsourcename FROM $DW_ONLINEBOOKINGPROVIDERTYPE",
+    "alias" : "tmpOnlinebookingprovidertype",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpPersontype",
+    "desc" : "tmpPersontype",
+    "expression" : "SELECT persontypeid, persontypename FROM $DW_PERSONTYPE",
+    "alias" : "tmpPersontype",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpListingunit",
+    "desc" : "tmpListingunit",
+    "expression" : "SELECT customerid, listingid, regionid, listingunitid, paymenttypeid FROM $DW_LISTINGUNIT",
+    "alias" : "tmpListingunit",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpTravelerorderpaymentdistributionamounttype",
+    "desc" : "tmpTravelerorderpaymentdistributionamounttype",
+    "expression" : "SELECT travelerorderpaymentdistributionamounttypeid, travelerorderpaymentdistributionamounttypename FROM $DW_TRAVELER_TRAVELERORDERPAYMENTDISTRIBUTIONAMOUNTTYPE",
+    "alias" : "tmpTravelerorderpaymentdistributionamounttype",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpChannel",
+    "desc" : "tmpChannel",
+    "expression" : "SELECT channelid, channelname, listingsource FROM $DW_CHANNEL",
+    "alias" : "tmpChannel",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpTravelerorderitem",
+    "desc" : "tmpTravelerorderitem",
+    "expression" : "SELECT travelerorderitemstatus, travelerorderitemid, currencycode, productid, amount, travelerorderid FROM $DW_TRAVELER_TRAVELERORDERITEM",
+    "alias" : "tmpTravelerorderitem",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpVw_quotegrossbookingvalue",
+    "desc" : "tmpVw_quotegrossbookingvalue",
+    "expression" : "SELECT bookingvalue, rentalamount, reservationid, orderamount, currencycode, quoteid, quotestatusid, refundabledamagedepositamount, vasamount, paymentmethodtypeid, taxamount, paidamount, servicefeeamount, refundamount, commissionamount FROM $DW_VW_QUOTEGROSSBOOKINGVALUE",
+    "alias" : "tmpVw_quotegrossbookingvalue",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpTravelerorderpaymentdistribution",
+    "desc" : "tmpTravelerorderpaymentdistribution",
+    "expression" : "SELECT travelerorderpaymentid, travelerorderitemid, updatedate, distributedamount, travelerorderpaymentdistributiontypeid, travelerorderpaymentdistributiontoaccounttypeid, travelerorderpaymentdistributionamounttypeid FROM $DW_TRAVELER_TRAVELERORDERPAYMENTDISTRIBUTION",
+    "alias" : "tmpTravelerorderpaymentdistribution",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpQuotefact",
+    "desc" : "tmpQuotefact",
+    "expression" : "SELECT dwcreatedate, reservationid, displayregionid, quoteid, quotestatusid, quoteitemactiveflag, quotecreateddate, fullvisitorid, websitereferralmediumsessionid, visitid, dwlastupdatedate, quoteactiveflag FROM $DW_QUOTEFACT",
+    "alias" : "tmpQuotefact",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpReservation",
+    "desc" : "tmpReservation",
+    "expression" : "SELECT bookingcategoryid, departuredate, reservationpaymentstatustypeid, traveleremailid, brandid, reservationid, createdate, inquiryserviceentryguid, arrivaldate, cancelleddate, activeflag, dwupdatedatetime, devicecategorysessionid, siteid, fullvisitorid, bookingdate, visitorid, websitereferralmediumsessionid, reservationavailabilitystatustypeid, regionid, listingunitid, visitid, bookingreporteddate, onlinebookingprovidertypeid FROM $DW_RESERVATION",
+    "alias" : "tmpReservation",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpProductfulfillment",
+    "desc" : "tmpProductfulfillment",
+    "expression" : "SELECT externalrefid, externalreftype, producttypeguid FROM $DW_TRAVELER_PRODUCTFULFILLMENT",
+    "alias" : "tmpProductfulfillment",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpBookingvaluesource",
+    "desc" : "tmpBookingvaluesource",
+    "expression" : "SELECT bookingvaluesourceid, bookingvaluesourcetype, bookingvaluesourcename FROM $DW_BOOKINGVALUESOURCE",
+    "alias" : "tmpBookingvaluesource",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpVisitorfact",
+    "desc" : "tmpVisitorfact",
+    "expression" : "SELECT dateid, source, visitdate, fullvisitorid, visitstarttime, visitid FROM $DW_TRAVELER_VISITORFACT WHERE dateid IN ('$startDate', '$prevDate')",
+    "alias" : "tmpVisitorfact",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpBrand",
+    "desc" : "tmpBrand",
+    "expression" : "SELECT reportingcurcode, brandid FROM $DW_BRAND",
+    "alias" : "tmpBrand",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpTravelerorder",
+    "desc" : "tmpTravelerorder",
+    "expression" : "SELECT reservationid, travelerorderid, quoteid FROM $DW_TRAVELER_TRAVELERORDER",
+    "alias" : "tmpTravelerorder",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpAverageknownnightlybookingvalue",
+    "desc" : "tmpAverageknownnightlybookingvalue",
+    "expression" : "SELECT city, brandid, arrivalyearnumber, averagebookingvaluepernightusd, bookingquarterenddate, country, estimationstepnum, postalcode, listingunitid, bedroomnum, arrivalquarterenddate FROM $DW_AVERAGEKNOWNNIGHTLYBOOKINGVALUE",
+    "alias" : "tmpAverageknownnightlybookingvalue",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpTravelerorderpaymentdistributiontoaccounttype",
+    "desc" : "tmpTravelerorderpaymentdistributiontoaccounttype",
+    "expression" : "SELECT travelerorderpaymentdistributiontoaccounttypeid, travelerorderpaymentdistributiontoaccounttypename FROM $DW_TRAVELER_TRAVELERORDERPAYMENTDISTRIBUTIONTOACCOUNTTYPE",
+    "alias" : "tmpTravelerorderpaymentdistributiontoaccounttype",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpBrandattributes",
+    "desc" : "tmpBrandattributes",
+    "expression" : "SELECT brandattributesid, brandid, rowstartdate, rowenddate FROM $DW_BRANDATTRIBUTES",
+    "alias" : "tmpBrandattributes",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpCurrencyconversion",
+    "desc" : "tmpCurrencyconversion",
+    "expression" : "SELECT tocurrency, rowstartdate, conversionrate, fromcurrency, rowenddate, currencyconversionid FROM $DW_CURRENCYCONVERSION",
+    "alias" : "tmpCurrencyconversion",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpListingattributes",
+    "desc" : "tmpListingattributes",
+    "expression" : "SELECT listingattributesid, listingid, rowstartdate, rowenddate FROM $DW_LISTINGATTRIBUTES",
+    "alias" : "tmpListingattributes",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpBookingfact",
+    "desc" : "tmpBookingfact",
+    "expression" : "SELECT customerattributesid, inquirymedium, brandattributesid, bookingvaluesourceid, bookingcategoryid, paidamountoffline, bookingvalue, rentalamount, reservationpaymentstatustypeid, traveleremailid, bookingrequestwebsitereferralmediumsessionid, brandid, reservationid, cancelleddateid, listingchannelid, orderamount, bookingrequestfullvisitorid, displayregionid, bookingdateid, strategicdestinationid, inquirysource, strategicdestinationattributesid, paidamountonline, refundabledamagedepositamount, calculatedvisitid, vasamount, currencyconversionidbrandcurrency, inquiryid, listingattributesid, customerid, bookingrequestsource, devicecategorysessionid, bookednightscount, bookingcount, paymentmethodtypeid, siteid, localcurrencyid, calculatedbookingwebsitereferralmediumsessionid, listingid, fullvisitorid, reservationcreatedateid, listingunitattributesid, taxamount, bookingrequestvisitid, visitorid, websitereferralmediumsessionid, reservationavailabilitystatustypeid, calculatedfullvisitorid, regionid, subscriptionid, listingunitid, visitid, paidamount, bookingchannelid, currencyconversionidusd, servicefeeamount, inquiryvisitid, paymenttypeid, calculatedbookingsource, inquirywebsitereferralmediumsessionid, calculatedbookingmedium, bookingrequestmedium, refundamount, onlinebookingprovidertypeid, persontypeid, bookingreporteddateid, commissionamount, inquiryfullvisitorid FROM $DW_FACTS_BOOKINGFACT WHERE reservationcreatedateid IN ('$startDate', '$prevDate')",
+    "alias" : "tmpBookingfact",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpCalendar",
+    "desc" : "tmpCalendar",
+    "expression" : "SELECT quarterenddate, yearnumber, dateid FROM $DW_CALENDAR",
+    "alias" : "tmpCalendar",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpListing",
+    "desc" : "tmpListing",
+    "expression" : "SELECT city, strategicdestinationid, country, listingid, postalcode, subscriptionid, paymenttypeid, bedroomnum FROM $DW_LISTING",
+    "alias" : "tmpListing",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "tmpDestinationattributes",
+    "desc" : "tmpDestinationattributes",
+    "expression" : "SELECT destinationattributesid, destinationid, rowstartdate, rowenddate FROM $DW_DESTINATIONATTRIBUTES",
+    "alias" : "tmpDestinationattributes",
+    "cache" : "false",
+    "datasource" : "mssql"
+  }, {
+    "id" : 0,
+    "name" : "step1",
+    "desc" : "step1",
+    "expression" : "\n    select\n        @etlcontrolid = etlcontrolid \n    from\n        dw_config.dbo.etlcontrol \n    where\n        processname = @processname\n\n\n",
+    "alias" : "df1",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step2",
+    "desc" : "step2",
+    "expression" : "\n    create table #reslist (\n        reservationid int \n    )\n\n\n",
+    "alias" : "df2",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step3",
+    "desc" : "step3",
+    "expression" : "\n    insert \n    into\n        #reslist\n        select\n            distinct qf.reservationid \n        from\n            tmpQuotefact qf \n        where\n            1 = 1 \n            and qf.quotecreateddate >= @rollingtwoyears \n            and qf.quoteitemactiveflag = 1 \n            and qf.quoteactiveflag = 1 \n            and qf.quotestatusid >= -1 \n            and (\n                qf.dwcreatedate between cast ( @startdate as datetime ) and cast ( @enddate as datetime ) \n                or dwlastupdatedate between cast ( @startdate as datetime ) and cast ( @enddate as datetime ) \n            ) \n            and exists (\n                select\n                    1 \n                from\n                    tmpReservation r \n                where\n                    r.activeflag = 1 \n                    and r.createdate >= @rollingtwoyears \n                    and r.bookingcategoryid != 1 \n                    and qf.reservationid = r.reservationid \n            )\n\n\n",
+    "alias" : "df3",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step4",
+    "desc" : "step4",
+    "expression" : "\n    insert \n    into\n        #reslist\n        select\n            r.reservationid \n        from\n            tmpReservation r \n        where\n            r.createdate >= @rollingtwoyears \n            and r.activeflag = 1 \n            and r.bookingcategoryid != 1 \n            and r.dwupdatedatetime between @startdate and @enddate \n            and not exists (\n                select\n                    1 \n                from\n                    #reslist r2 \n                where\n                    r2.reservationid = r.reservationid \n            )\n\n\n",
+    "alias" : "df4",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step5",
+    "desc" : "step5",
+    "expression" : "\n    insert \n    into\n        #reslist\n        select\n            distinct tto.reservationid \n        from\n            tmpTravelerorder tto \n        inner join\n            tmpTravelerorderitem toi \n                on tto.travelerorderid = toi.travelerorderid \n        inner join\n            tmpTravelerorderpayment topp \n                on tto.travelerorderid = topp.travelerorderid \n        inner join\n            tmpTravelerorderpaymentdistribution topd \n                on topp.travelerorderpaymentid = topd.travelerorderpaymentid \n                and topd.travelerorderitemid = topd.travelerorderitemid \n        where\n            topp.travelerorderpaymenttypename = 'payment' \n            and topp.travelerorderpaymentstatusname in (\n                'paid' , 'settled' , 'remitted' \n            ) \n            and topd.updatedate between @startdate and @enddate \n            and exists (\n                select\n                    1 \n                from\n                    tmpReservation r \n                where\n                    r.reservationid = tto.reservationid \n                    and r.activeflag = 1 \n                    and r.bookingcategoryid != 1 \n                    and r.createdate >= @rollingtwoyears \n            ) \n            and not exists (\n                select\n                    1 \n                from\n                    #reslist r2 \n                where\n                    r2.reservationid = tto.reservationid \n            )\n\n\n",
+    "alias" : "df5",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step6",
+    "desc" : "step6",
+    "expression" : "\n    select\n        r.arrivaldate ,\n        r.createdate  ,\n        r.bookingcategoryid ,\n        bookingdateid = r.bookingdate  ,\n        bookingreporteddateid = r.bookingreporteddate  ,\n        cancelleddateid = r.cancelleddate ,\n        r.brandid ,\n        r.listingunitid ,\n        r.reservationid ,\n        r.siteid ,\n        r.traveleremailid ,\n        visitorid = coalesce ( r.visitorid ,\n        0 ) ,\n        r.onlinebookingprovidertypeid ,\n        reservationavailabilitystatustypeid = r.reservationavailabilitystatustypeid ,\n        reservationpaymentstatustypeid = r.reservationpaymentstatustypeid  ,\n        devicecategorysessionid = r.devicecategorysessionid ,\n        r.inquiryserviceentryguid ,\n        inquiryid = 0  ,\n        lu.customerid ,\n        lu.listingid ,\n        b.reportingcurcode as brandcurrencycode ,\n        lu.regionid ,\n        bookednightscount = case \n            when r.arrivaldate = r.departuredate then 1 \n            else datediff ( d ,\n            r.arrivaldate ,\n            r.departuredate ) \n        end ,\n        brandattributesid = 0 ,\n        customerattributesid = 0 ,\n        listingattributesid = 0 ,\n        listingunitattributesid = -1 ,\n        subscriptionid = -1 ,\n        paymenttypeid = -1 ,\n        listingchannelid = -1 ,\n        persontypeid = -1 ,\n        bookingcount = 1 ,\n        bookingchannelid = -1 ,\n        strategicdestinationid = 0 ,\n        strategicdestinationattributesid = 0 ,\n        r.visitid ,\n        r.fullvisitorid ,\n        r.websitereferralmediumsessionid \n    into\n        #res \n    from\n        tmpReservation r \n    inner join\n        tmpListingunit lu \n            on r.listingunitid = lu.listingunitid \n    inner join\n        tmpBrand b \n            on r.brandid = b.brandid \n    inner join\n        #reslist rl \n            on r.reservationid = rl.reservationid\n\n\n",
+    "alias" : "df6",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step7",
+    "desc" : "step7",
+    "expression" : "\n    select\n        i.inquiryid  as r.inquiryid \n    from\n        #res r \n    inner join\n        dbo.inquiry i \n            on r.inquiryserviceentryguid = i.inquiryserviceentryguid \n            and r.listingid = i.listingid\n\n\n",
+    "alias" : "df7",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step8",
+    "desc" : "step8",
+    "expression" : "\n    select\n        ch.channelid  as r.listingchannelid \n    from\n        #res r \n    inner join\n        tmpOnlinebookingprovidertype obpt \n            on r.onlinebookingprovidertypeid = obpt.onlinebookingprovidertypeid \n    left join\n        tmpChannel ch \n            on case \n                when obpt.olbprovidergatewaytypedescription like 'clear stay%' then 'clearstay' \n                else obpt.listingsourcename \n            end = ch.channelname \n            and obpt.listingsourcename = ch.listingsource\n\n\n",
+    "alias" : "df8",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step9",
+    "desc" : "step9",
+    "expression" : "\n    select\n        la.listingattributesid  as r.listingattributesid \n    from\n        #res r \n    inner join\n        tmpListingattributes la \n            on r.listingid = la.listingid \n            and r.createdate between la.rowstartdate and la.rowenddate\n\n\n",
+    "alias" : "df9",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step10",
+    "desc" : "step10",
+    "expression" : "\n    select\n        s.subscriptionid  as r.subscriptionid,\n        s.paymenttypeid  as r.paymenttypeid \n    from\n        #res r \n    inner join\n        dbo.subscription s \n            on r.listingid = s.listingid \n    where\n        r.bookingdateid between s.subscriptionstartdate and s.subscriptionenddate\n\n\n",
+    "alias" : "df10",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step11",
+    "desc" : "step11",
+    "expression" : "\n    select\n        l.strategicdestinationid  as r.strategicdestinationid \n    from\n        #res r \n    inner join\n        tmpListing l \n            on r.listingid = l.listingid\n\n\n",
+    "alias" : "df11",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step12",
+    "desc" : "step12",
+    "expression" : "\n    select\n        da.destinationattributesid  as r.strategicdestinationattributesid \n    from\n        #res r \n    inner join\n        tmpDestinationattributes da \n            on r.strategicdestinationid = da.destinationid \n            and r.createdate between da.rowstartdate and da.rowenddate\n\n\n",
+    "alias" : "df12",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step13",
+    "desc" : "step13",
+    "expression" : "\n    select\n        ba.brandattributesid  as r.brandattributesid \n    from\n        #res r \n    inner join\n        tmpBrandattributes ba \n            on r.brandid = ba.brandid \n            and r.createdate between ba.rowstartdate and ba.rowenddate\n\n\n",
+    "alias" : "df13",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step14",
+    "desc" : "step14",
+    "expression" : "\n    select\n        ca.customerattributesid  as r.customerattributesid,\n        coalesce ( pt.persontypeid,\n        -1 ) as r.persontypeid \n    from\n        #res r \n    inner join\n        tmpCustomerattributes ca \n            on r.customerid = ca.customerid \n            and r.createdate between ca.rowstartdate and ca.rowenddate \n    left join\n        tmpPersontype pt \n            on coalesce ( ca.persontype ,\n        'unknown' ) = pt.persontypename\n\n\n",
+    "alias" : "df14",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step15",
+    "desc" : "step15",
+    "expression" : "\n    select\n        lua.listingunitattributesid  as r.listingunitattributesid \n    from\n        #res r \n    inner join\n        tmpListingunitattributes lua \n            on r.listingunitid = lua.listingunitid \n            and r.createdate between lua.rowstartdate and lua.rowenddate\n\n\n",
+    "alias" : "df15",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step16",
+    "desc" : "step16",
+    "expression" : "\n    select\n        s.bookingchannelid  as r.bookingchannelid \n    from\n        #res r \n    inner join\n        dbo.site s \n            on s.siteid = r.siteid \n    where\n        s.bookingchannelid > -1\n\n\n",
+    "alias" : "df16",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step17",
+    "desc" : "step17",
+    "expression" : "\n    select\n        r.reservationid ,\n        gbv.currencycode ,\n        valuesource = cast ( case \n            when gbv.quotestatusid = -1 then 'quote unk' \n            else 'quote' \n        end as varchar ( 25 ) ) ,\n        gbv.rentalamount ,\n        gbv.refundabledamagedepositamount ,\n        gbv.servicefeeamount ,\n        gbv.taxamount ,\n        gbv.vasamount ,\n        gbv.orderamount ,\n        gbv.paidamount ,\n        gbv.refundamount ,\n        gbv.bookingvalue ,\n        gbv.commissionamount ,\n        gbv.paymentmethodtypeid ,\n        rownum = row_number ( ) over ( partition \n    by\n        gbv.reservationid \n    order by\n        cast ( case \n            when gbv.quotestatusid = -1 then 'quote unk' \n            else 'quote' \n        end as varchar ( 25 ) ) ,\n        gbv.quoteid ) \n    into\n        #qgbv \n    from\n        tmpVw_quotegrossbookingvalue gbv \n    inner join\n        #res r \n            on gbv.reservationid = r.reservationid\n\n\n",
+    "alias" : "df17",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step18",
+    "desc" : "step18",
+    "expression" : "\n    with gbv as ( select\n        reservationid ,\n        currencycode ,\n        valuesource ,\n        rentalamount = sum ( rentalamount ) ,\n        refundabledamagedepositamount = sum ( refundabledamagedepositamount ) ,\n        servicefeeamount = sum ( servicefeeamount ) ,\n        taxamount = sum ( taxamount ) ,\n        vasamount = sum ( vasamount ) ,\n        orderamount = sum ( orderamount ) ,\n        paidamount = sum ( paidamount ) ,\n        refundamount = sum ( refundamount ) ,\n        bookingvalue = sum ( bookingvalue ) ,\n        commissionamount = sum ( commissionamount ) \n    from\n        #qgbv \n    group by\n        reservationid ,\n        currencycode ,\n        valuesource ) select\n        gbv.reservationid ,\n        gbv.currencycode ,\n        gbv.rentalamount ,\n        gbv.refundabledamagedepositamount ,\n        gbv.servicefeeamount ,\n        gbv.taxamount ,\n        gbv.vasamount ,\n        gbv.orderamount ,\n        gbv.paidamount ,\n        gbv.refundamount ,\n        gbv.bookingvalue ,\n        gbv.valuesource ,\n        displayregionid = -1 ,\n        gbv.commissionamount ,\n        paymentmethodtypeid = 0 ,\n        paidamountoffline = 0 ,\n        paidamountonline = 0 \n    into\n        #gbv \n    from\n        gbv\n\n\n",
+    "alias" : "df18",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step19",
+    "desc" : "step19",
+    "expression" : "\n    with dup as ( select\n        reservationid ,\n        min ( valuesource ) as minvaluesource ,\n        max ( valuesource ) as maxvaluesource \n    from\n        #gbv \n    group by\n        reservationid \n    having\n        count ( 1 ) > 1 ) delete \n    from\n        g \n    from\n        dup d \n    inner join\n        #gbv g \n            on d.reservationid = g.reservationid \n            and d.maxvaluesource = g.valuesource \n            and d.maxvaluesource != d.minvaluesource\n\n\n",
+    "alias" : "df19",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step20",
+    "desc" : "step20",
+    "expression" : "\n    with dup as ( select\n        g.reservationid ,\n        min ( g.valuesource ) as minvaluesource ,\n        max ( g.valuesource ) as maxvaluesource \n    from\n        #gbv g \n    group by\n        g.reservationid \n    having\n        count ( 1 ) > 1 ) delete \n    from\n        g \n    from\n        dup d \n    inner join\n        #gbv g \n            on d.reservationid = g.reservationid \n            and d.maxvaluesource = g.valuesource \n            and d.maxvaluesource=d.minvaluesource \n    inner join\n        #qgbv q \n            on g.reservationid=q.reservationid \n            and g.currencycode=q.currencycode \n            and q.rownum = 1\n\n\n",
+    "alias" : "df20",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step21",
+    "desc" : "step21",
+    "expression" : "\n    select\n        x.paymentmethodtypeid  as gbv.paymentmethodtypeid \n    from\n        #qgbv x \n    inner join\n        #gbv gbv \n            on x.reservationid = gbv.reservationid \n            and x.valuesource = gbv.valuesource \n    where\n        x.rownum = 1 \n        and x.paymentmethodtypeid > 0\n\n\n",
+    "alias" : "df21",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step22",
+    "desc" : "step22",
+    "expression" : "\n    with x as ( select\n        tot.reservationid ,\n        g.currencycode ,\n        amount = case \n            when g.currencycode != topp.currencycode \n            and cc.conversionrate is not null then topp.amount * cc.conversionrate \n            else topp.amount \n        end ,\n        pmt.paymentcollectiontype \n    from\n        dw_traveler..travelerorderpayment topp \n    inner join\n        dw_traveler..travelerorder tot \n            on topp.travelerorderid = tot.travelerorderid \n    inner join\n        dw_traveler..paymentmethodtype pmt \n            on pmt.paymentmethodtypeid = topp.paymentmethodtypeid \n    inner join\n        #gbv g \n            on tot.reservationid = g.reservationid \n    left join\n        tmpCurrencyconversion cc \n            on g.currencycode = cc.tocurrency  \n            and topp.currencycode = cc.fromcurrency \n            and topp.paymentdate between cc.rowstartdate and cc.rowenddate \n    where\n        topp.amount <> 0 \n        and tot.quoteid > 0 \n        and topp.travelerorderpaymenttypename in ( 'payment' )  \n        and topp.travelerorderpaymentstatusname in ( 'paid' , 'settled' , 'remitted' ) ) select\n        p.reservationid ,\n        p.currencycode ,\n        paidamountonline = coalesce ( p.online ,\n        0 ) ,\n        paidamountoffline = coalesce ( p.offline ,\n        0 ) + coalesce ( p.unknown ,\n        0 ) \n    into\n        #gbv2 \n    from\n        x pivot ( sum ( amount ) for paymentcollectiontype in ( [online] ,\n        [offline] ,\n        [unknown] ) ) as p\n\n\n",
+    "alias" : "df22",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step23",
+    "desc" : "step23",
+    "expression" : "\n    with r as ( select\n        r.reservationid ,\n        max ( q.displayregionid ) as displayregionid \n    from\n        tmpQuotefact q \n    inner join\n        #res r \n            on q.reservationid = r.reservationid \n    group by\n        r.reservationid ) update\n        g \n    set\n        g.displayregionid = r.displayregionid \n    from\n        #gbv g \n    inner join\n        r \n            on g.reservationid = r.reservationid\n\n\n",
+    "alias" : "df23",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step24",
+    "desc" : "step24",
+    "expression" : "\n    select\n        tto.reservationid ,\n        toi.currencycode ,\n        servicefeeamount = sum ( topd.distributedamount ) ,\n        servicefeevatamount = sum ( case \n            when topd.travelerorderpaymentdistributiontoaccounttypeid = 2 then topd.distributedamount \n            else 0 \n        end ) ,\n        servicefeeprocessingfeeamount = sum ( case \n            when topd.travelerorderpaymentdistributiontypeid in ( 10 ,\n            5 ,\n            4 ,\n            2 ,\n            1 ) then topd.distributedamount \n            else 0 \n        end ) \n    into\n        #sf \n    from\n        tmpTravelerorder tto \n    inner join\n        tmpTravelerorderitem toi \n            on tto.travelerorderid = toi.travelerorderid \n    inner join\n        tmpProduct p \n            on toi.productid = p.productid \n    inner join\n        tmpTravelerorderpayment topp \n            on tto.travelerorderid = topp.travelerorderid  \n    inner join\n        tmpTravelerorderpaymentdistribution topd \n            on topp.travelerorderpaymentid = topd.travelerorderpaymentid \n            and toi.travelerorderitemid = topd.travelerorderitemid \n    inner join\n        #gbv gbv \n            on tto.reservationid = gbv.reservationid  \n    where\n        p.grossbookingvalueproductcategory = 'traveler_fee' \n        and topp.travelerorderpaymenttypename = 'payment' \n        and topp.travelerorderpaymentstatusname in (\n            'paid' , 'settled' , 'remitted' \n        ) \n    group by\n        tto.reservationid ,\n        toi.currencycode\n\n\n",
+    "alias" : "df24",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step25",
+    "desc" : "step25",
+    "expression" : "\n    select\n        'quote and travelerorder'  as gbv.valuesource,\n        case \n            when gbv.servicefeeamount = 0  then sf.servicefeeamount - sf.servicefeevatamount - sf.servicefeeprocessingfeeamount \n            else gbv.servicefeeamount  \n        end as gbv.servicefeeamount,\n        gbv.taxamount + sf.servicefeevatamount as gbv.taxamount,\n        gbv.orderamount - gbv.servicefeeamount - gbv.taxamount + case \n            when gbv.servicefeeamount = 0  then sf.servicefeeamount - sf.servicefeevatamount - sf.servicefeeprocessingfeeamount \n            else gbv.servicefeeamount  \n        end + gbv.taxamount + sf.servicefeevatamount as gbv.orderamount,\n        gbv.bookingvalue - gbv.servicefeeamount - gbv.taxamount + case \n            when gbv.servicefeeamount = 0  then sf.servicefeeamount - sf.servicefeevatamount - sf.servicefeeprocessingfeeamount \n            else gbv.servicefeeamount  \n        end + gbv.taxamount + sf.servicefeevatamount as gbv.bookingvalue \n    from\n        #sf sf \n    inner join\n        #gbv gbv \n            on sf.reservationid = gbv.reservationid \n            and sf.currencycode = gbv.currencycode  \n    where\n        gbv.servicefeeamount != case \n            when gbv.servicefeeamount = 0 then sf.servicefeeamount - sf.servicefeevatamount - sf.servicefeeprocessingfeeamount \n            else gbv.servicefeeamount \n        end \n        or sf.servicefeevatamount != 0\n\n\n",
+    "alias" : "df25",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step26",
+    "desc" : "step26",
+    "expression" : "\n    select\n        r.reservationid ,\n        r.listingunitid ,\n        r.regionid ,\n        r.arrivaldate ,\n        cal.quarterenddate as arrivalquarterenddate ,\n        cal.yearnumber as arrivalyearnumber ,\n        r.brandcurrencycode ,\n        r.brandid ,\n        r.bookednightscount ,\n        l.bedroomnum ,\n        l.postalcode ,\n        l.city ,\n        l.country ,\n        bookingquarterenddate = calb.quarterenddate ,\n        bookingyearnumber = calb.yearnumber ,\n        currencycode = 'usd' ,\n        bookingvalue = cast ( 0 as decimal ( 18 ,\n        6 ) ) ,\n        step = 0 \n    into\n        #est \n    from\n        #res r \n    inner join\n        dbo.bookingcategory bc \n            on r.bookingcategoryid = bc.bookingcategoryid \n    inner join\n        tmpListing l \n            on r.listingid = l.listingid \n    inner join\n        tmpCalendar cal \n            on r.arrivaldate = cal.dateid \n    inner join\n        tmpCalendar calb \n            on r.bookingdateid = calb.dateid \n    where\n        bc.bookingindicator = 1 \n        and bc.knownbookingindicator = 0 \n        and not exists (\n            select\n                g.reservationid \n            from\n                #gbv g \n            where\n                r.reservationid = g.reservationid \n        )\n\n\n",
+    "alias" : "df26",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step27",
+    "desc" : "step27",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        1  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 1 \n            and f.listingunitid = x.listingunitid \n            and f.arrivalquarterenddate = x.arrivalquarterenddate\n\n\n",
+    "alias" : "df27",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step28",
+    "desc" : "step28",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        2  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 2 \n            and f.listingunitid = x.listingunitid \n            and f.arrivalyearnumber = x.arrivalyearnumber \n    where\n        f.step=0\n\n\n",
+    "alias" : "df28",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step29",
+    "desc" : "step29",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        3  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 3 \n            and f.listingunitid = x.listingunitid \n    where\n        f.step=0\n\n\n",
+    "alias" : "df29",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step30",
+    "desc" : "step30",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        4  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 4 \n            and f.brandid = x.brandid \n            and f.bedroomnum = x.bedroomnum \n            and f.postalcode = x.postalcode \n            and f.bookingquarterenddate = x.bookingquarterenddate \n    where\n        f.step = 0\n\n\n",
+    "alias" : "df30",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step31",
+    "desc" : "step31",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        5  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 5 \n            and f.brandid = x.brandid \n            and f.bedroomnum = x.bedroomnum \n            and f.postalcode = x.postalcode \n            and f.arrivalyearnumber = x.arrivalyearnumber \n    where\n        f.step = 0\n\n\n",
+    "alias" : "df31",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step32",
+    "desc" : "step32",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        6  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 6 \n            and f.brandid = x.brandid \n            and f.bedroomnum = x.bedroomnum \n            and f.postalcode = x.postalcode \n    where\n        f.step = 0\n\n\n",
+    "alias" : "df32",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step33",
+    "desc" : "step33",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        7  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 7 \n            and f.brandid = x.brandid \n            and f.bedroomnum = x.bedroomnum \n            and f.city = x.city \n            and f.country = x.country \n            and f.bookingquarterenddate = x.bookingquarterenddate \n    where\n        f.step = 0\n\n\n",
+    "alias" : "df33",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step34",
+    "desc" : "step34",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        8  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 8 \n            and f.brandid = x.brandid \n            and f.bedroomnum = x.bedroomnum \n            and f.city = x.city \n            and f.country = x.country \n            and f.arrivalyearnumber = x.arrivalyearnumber \n    where\n        f.step = 0\n\n\n",
+    "alias" : "df34",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step35",
+    "desc" : "step35",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        9  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 9 \n            and f.brandid = x.brandid \n            and f.bedroomnum = x.bedroomnum \n            and f.city = x.city \n            and f.country = x.country \n    where\n        f.step = 0\n\n\n",
+    "alias" : "df35",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step36",
+    "desc" : "step36",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        estimationstepnum  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 10 \n            and f.brandid = x.brandid \n            and f.bedroomnum = x.bedroomnum \n    where\n        f.step = 0\n\n\n",
+    "alias" : "df36",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step37",
+    "desc" : "step37",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        estimationstepnum  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 11 \n            and f.bedroomnum = x.bedroomnum \n    where\n        f.step = 0\n\n\n",
+    "alias" : "df37",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step38",
+    "desc" : "step38",
+    "expression" : "\n    select\n        round ( x.averagebookingvaluepernightusd * f.bookednightscount ,\n        6 ) as f.bookingvalue,\n        estimationstepnum  as f.step \n    from\n        #est f \n    inner join\n        tmpAverageknownnightlybookingvalue x \n            on x.estimationstepnum = 12 \n            and f.brandid = x.brandid \n    where\n        f.step = 0\n\n\n",
+    "alias" : "df38",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step39",
+    "desc" : "step39",
+    "expression" : "\n    insert \n    into\n        #gbv\n        (\n            reservationid , currencycode , rentalamount , refundabledamagedepositamount , servicefeeamount , taxamount , vasamount , orderamount , paidamount , refundamount , bookingvalue , valuesource , displayregionid , commissionamount , paymentmethodtypeid , paidamountoffline , paidamountonline \n        ) select\n            reservationid ,\n            currencycode ,\n            rentalamount=bookingvalue ,\n            refundabledamagedepositamount = 0 ,\n            servicefeeamount = 0 ,\n            taxamount = 0 ,\n            vasamount = 0 ,\n            orderamount = bookingvalue ,\n            paidamount = 0 ,\n            refundamount = 0 ,\n            bookingvalue ,\n            valuesource = 'estimate step ' + cast ( step as varchar ( 5 ) ) ,\n            -1 ,\n            commissionamount = 0 ,\n            paymentmethodtypeid = 0 ,\n            paidamountoffline = 0 ,\n            paidamountonline = 0 \n        from\n            #est\n\n\n",
+    "alias" : "df39",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step40",
+    "desc" : "step40",
+    "expression" : "\n    select\n        r.* ,\n        bookingvaluesourceid = coalesce ( s.bookingvaluesourceid ,\n        1 ) ,\n        displayregionid = coalesce ( g.displayregionid ,\n        -1 ) ,\n        rentalamount = coalesce ( g.rentalamount ,\n        0 ) ,\n        refundabledamagedepositamount = coalesce ( g.refundabledamagedepositamount ,\n        0 ) ,\n        servicefeeamount = coalesce ( g.servicefeeamount ,\n        0 ) ,\n        taxamount = coalesce ( g.taxamount ,\n        0 ) ,\n        vasamount = coalesce ( g.vasamount ,\n        0 ) ,\n        orderamount = coalesce ( g.orderamount ,\n        0 ) ,\n        paidamount = coalesce ( g.paidamount ,\n        0 ) ,\n        refundamount = coalesce ( g.refundamount ,\n        0 ) ,\n        bookingvalue = coalesce ( g.bookingvalue ,\n        0 ) ,\n        localcurrencyid = coalesce ( c.currencyid ,\n        154 ) ,\n        currencyconversionidusd = coalesce ( ccusd.currencyconversionid ,\n        -1 ) ,\n        currencyconversionidbrandcurrency = coalesce ( ccbc.currencyconversionid ,\n        -1 ) ,\n        commissionamount = coalesce ( g.commissionamount ,\n        0 ) ,\n        paymentmethodtypeid = coalesce ( g.paymentmethodtypeid ,\n        0 )  ,\n        paidamountonline = coalesce ( g2.paidamountonline ,\n        0 ) ,\n        paidamountoffline = coalesce ( g2.paidamountoffline ,\n        0 ) ,\n        inquiryvisitid = 0 ,\n        inquiryfullvisitorid = convert ( varchar ( 50 ) ,\n        '[unknown]' ) ,\n        inquirymedium = convert ( nvarchar ( 255 ) ,\n        'undefined' ) ,\n        inquirywebsitereferralmediumsessionid = convert ( int ,\n        -1 ) ,\n        inquirysource = convert ( nvarchar ( 255 ) ,\n        '[n/a]' ) ,\n        bookingrequestvisitid = 0 ,\n        bookingrequestfullvisitorid = convert ( varchar ( 50 ) ,\n        '[unknown]' ) ,\n        bookingrequestmedium = convert ( nvarchar ( 255 ) ,\n        'undefined' ) ,\n        bookingrequestwebsitereferralmediumsessionid = convert ( int ,\n        -1 ) ,\n        bookingrequestsource = convert ( nvarchar ( 255 ) ,\n        '[n/a]' ) ,\n        calculatedvisitid = 0 ,\n        calculatedfullvisitorid = convert ( varchar ( 50 ) ,\n        '[unknown]' ) ,\n        calculatedbookingmedium = convert ( nvarchar ( 255 ) ,\n        'undefined' ) ,\n        calculatedbookingwebsitereferralmediumsessionid = convert ( int ,\n        -1 ) ,\n        calculatedbookingsource = convert ( nvarchar ( 255 ) ,\n        '[n/a]' ) \n    into\n        #final \n    from\n        #res r \n    left join\n        #gbv g \n            on r.reservationid = g.reservationid \n    left join\n        #gbv2 g2 \n            on r.reservationid = g2.reservationid \n    left join\n        tmpBookingvaluesource s \n            on g.valuesource = s.bookingvaluesourcename \n    left join\n        tmpCurrency c \n            on g.currencycode = c.currencycode \n    left join\n        tmpCurrencyconversion ccusd \n            on g.currencycode = ccusd.fromcurrency \n            and ccusd.tocurrency = 'usd' \n            and r.createdate between ccusd.rowstartdate and ccusd.rowenddate \n    left join\n        tmpCurrencyconversion ccbc \n            on r.brandcurrencycode = ccbc.tocurrency \n            and g.currencycode = ccbc.fromcurrency \n            and r.createdate between ccbc.rowstartdate and ccbc.rowenddate\n\n\n",
+    "alias" : "df40",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step41",
+    "desc" : "step41",
+    "expression" : "\n    with qf as ( select\n        q.quoteid ,\n        q.quoteitemid ,\n        q.quoteitemcreateddate ,\n        tp.quoteitemtype ,\n        q.amountlocalcurrency ,\n        q.reservationid \n    from\n        tmpQuotefact q \n    inner join\n        dbo.travelerproduct tp \n            on q.travelerproductid = tp.travelerproductid \n    inner join\n        #res r \n            on q.reservationid = r.reservationid \n    where\n        q.quotecreateddate >= '2013-01-01' \n        and q.quoteactiveflag = 1 \n        and q.quoteitemactiveflag = 1 ) select\n        tto.reservationid ,\n        toi.travelerorderid ,\n        r.brandcurrencycode ,\n        coalesce ( cc.conversionrate ,\n        1 ) as conversionrate ,\n        coalesce ( q.currencycode ,\n        toi.currencycode ) as localcurrencycode ,\n        sum ( toi.amount * coalesce ( cc.conversionrate ,\n        1 ) ) as standalonevasamt  \n    into\n        #vas \n    from\n        tmpTravelerorder tto \n    inner join\n        tmpTravelerorderitem toi \n            on toi.travelerorderid = tto.travelerorderid \n    inner join\n        tmpProduct p \n            on toi.productid = p.productid \n    inner join\n        tmpQuote q \n            on tto.quoteid = q.quoteid  \n    inner join\n        tmpProductfulfillment pf \n            on pf.externalrefid = q.quoteguid \n            and pf.externalreftype = 'quote' \n            and pf.producttypeguid = p.productguid \n    inner join\n        #res r \n            on q.reservationid = r.reservationid \n    left join\n        tmpCurrencyconversion cc \n            on toi.currencycode = cc.fromcurrency \n            and q.currencycode = cc.tocurrency \n            and r.createdate between cc.rowstartdate and cc.rowenddate \n    where\n        1 = 1 \n        and p.productguid not in (\n            'traveler_protection' , 'commission' \n        ) \n        and p.grossbookingvalueproductcategory = 'vas'  \n        and toi.travelerorderitemstatus = 'paid' \n        and not exists (\n            select\n                1 \n            from\n                qf \n            where\n                tto.reservationid = qf.reservationid \n                and qf.quoteitemtype = p.productguid \n        ) \n    group by\n        tto.reservationid ,\n        toi.travelerorderid ,\n        coalesce ( cc.conversionrate ,\n        1 ) ,\n        coalesce ( q.currencycode ,\n        toi.currencycode ) ,\n        r.brandcurrencycode\n\n\n",
+    "alias" : "df41",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step42",
+    "desc" : "step42",
+    "expression" : "\n    select\n        v.reservationid ,\n        v.localcurrencycode ,\n        v.brandcurrencycode ,\n        round ( sum ( v.standalonevasamt ) ,\n        6 ) as standalonevasamt  ,\n        paidamount = coalesce ( round ( sum ( topp.paidamount * v.conversionrate ) ,\n        6 ) ,\n        0 ) ,\n        paymentmethodtypeid = coalesce ( min ( topp.paymentmethodtypeid ) ,\n        0 ) ,\n        paidamountonline = coalesce ( round ( sum ( topp.paidamountonline * v.conversionrate ) ,\n        6 ) ,\n        0 ) ,\n        paidamountoffline = coalesce ( round ( sum ( topp.paidamountoffline * v.conversionrate ) ,\n        6 ) ,\n        0 ) \n    into\n        #vas2 \n    from\n        #vas v \n    left join\n        (\n            select\n                tp.travelerorderid ,\n                min ( tp.paymentmethodtypeid ) as paymentmethodtypeid ,\n                paidamount = sum ( topd.distributedamount )  ,\n                paidamountonline = sum ( case \n                    when pmt.paymentcollectiontype='online' then topd.distributedamount \n                    else 0 \n                end ) ,\n                paidamountoffline = sum ( case \n                    when pmt.paymentcollectiontype='offline' then topd.distributedamount \n                    else 0 \n                end ) \n            from\n                dw_traveler..travelerorderpayment tp \n            join\n                dw_traveler..travelerorderpaymentdistribution topd \n                    on topd.travelerorderpaymentid = tp.travelerorderpaymentid \n            join\n                dw_traveler..travelerorderpaymentdistributionamounttype at \n                    on topd.travelerorderpaymentdistributionamounttypeid = at.travelerorderpaymentdistributionamounttypeid \n            join\n                dw_traveler..travelerorderpaymentdistributiontype topdt \n                    on topd.travelerorderpaymentdistributiontypeid = topdt.travelerorderpaymentdistributiontypeid \n            join\n                dw_traveler..travelerorderpaymentdistributiontoaccounttype act \n                    on topd.travelerorderpaymentdistributiontoaccounttypeid = act.travelerorderpaymentdistributiontoaccounttypeid \n            join\n                dw_traveler..paymentmethodtype pmt \n                    on pmt.paymentmethodtypeid = tp.paymentmethodtypeid \n            where\n                at.travelerorderpaymentdistributionamounttypename = 'credit' \n                and act.travelerorderpaymentdistributiontoaccounttypename = 'vendor' \n                and tp.travelerorderpaymenttypename = 'payment' \n                and tp.travelerorderpaymentstatusname in (\n                    'settled' , 'remitted' , 'paid' \n                ) \n                and topdt.travelerorderpaymentdistributiontypename = 'service' \n            group by\n                tp.travelerorderid \n        ) topp \n            on v.travelerorderid = topp.travelerorderid \n    group by\n        v.reservationid ,\n        v.localcurrencycode ,\n        v.brandcurrencycode\n\n\n",
+    "alias" : "df42",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step43",
+    "desc" : "step43",
+    "expression" : "\n    select\n        bf.vasamount + standalonevasamt as bf.vasamount,\n        bf.orderamount + standalonevasamt as bf.orderamount,\n        bf.bookingvalue + standalonevasamt as bf.bookingvalue,\n        @quoteandtravelerorderbookingvaluesourceid  as bf.bookingvaluesourceid,\n        bf.paidamount + v.paidamount as bf.paidamount \n    from\n        #final bf \n    join\n        tmpCurrency c \n            on bf.localcurrencyid = c.currencyid \n    join\n        #vas2 v \n            on bf.reservationid = v.reservationid \n            and c.currencycode = v.localcurrencycode \n    join\n        tmpBookingvaluesource bvs \n            on bf.bookingvaluesourceid = bvs.bookingvaluesourceid \n    where\n        bvs.bookingvaluesourcetype = 'order'\n\n\n",
+    "alias" : "df43",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step44",
+    "desc" : "step44",
+    "expression" : "\n    select\n        bf.vasamount + standalonevasamt as bf.vasamount,\n        bf.orderamount + standalonevasamt as bf.orderamount,\n        bf.bookingvalue + standalonevasamt as bf.bookingvalue,\n        @travelerorderbookingvaluesourceid  as bf.bookingvaluesourceid,\n        vc.currencyid  as bf.localcurrencyid,\n        cc.currencyconversionid  as bf.currencyconversionidusd,\n        v.paymentmethodtypeid  as bf.paymentmethodtypeid,\n        bf.paidamount + v.paidamount as bf.paidamount,\n        bc.currencyconversionid  as bf.currencyconversionidbrandcurrency,\n        bf.paidamountonline + v.paidamountonline as bf.paidamountonline,\n        bf.paidamountoffline + v.paidamountoffline as bf.paidamountoffline \n    from\n        #final bf \n    inner join\n        tmpCurrency c \n            on bf.localcurrencyid = c.currencyid \n    inner join\n        #vas2 v \n            on bf.reservationid = v.reservationid \n            and c.currencycode != v.localcurrencycode \n    inner join\n        tmpCurrency vc \n            on v.localcurrencycode = vc.currencycode \n    inner join\n        tmpCurrencyconversion cc \n            on vc.currencycode = cc.fromcurrency \n            and cc.tocurrency = 'usd' \n            and bf.bookingdateid between cc.rowstartdate and cc.rowenddate \n    inner join\n        tmpCurrencyconversion bc \n            on v.brandcurrencycode = bc.tocurrency \n            and v.localcurrencycode = bc.fromcurrency \n            and bf.bookingdateid between bc.rowstartdate and bc.rowenddate \n    where\n        bf.bookingvaluesourceid = 1\n\n\n",
+    "alias" : "df44",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step45",
+    "desc" : "step45",
+    "expression" : "\n    insert \n    into\n        #final\n        (\n            arrivaldate , createdate , bookingcategoryid , bookingdateid , bookingreporteddateid , cancelleddateid , brandid , listingunitid , reservationid , siteid , traveleremailid , visitorid , onlinebookingprovidertypeid , reservationavailabilitystatustypeid , reservationpaymentstatustypeid , devicecategorysessionid , inquiryserviceentryguid , inquiryid , customerid , listingid , brandcurrencycode , regionid , bookednightscount , brandattributesid , customerattributesid , listingattributesid , listingunitattributesid , subscriptionid , paymenttypeid , listingchannelid , persontypeid , bookingcount , bookingvaluesourceid , displayregionid , rentalamount , refundabledamagedepositamount , servicefeeamount , taxamount , vasamount , orderamount , paidamount , refundamount , bookingvalue , localcurrencyid , currencyconversionidusd , currencyconversionidbrandcurrency , commissionamount , bookingchannelid , paymentmethodtypeid , paidamountoffline , paidamountonline , strategicdestinationid , strategicdestinationattributesid , visitid , fullvisitorid , websitereferralmediumsessionid , inquiryvisitid , inquiryfullvisitorid , inquirymedium , inquirywebsitereferralmediumsessionid , inquirysource , bookingrequestvisitid , bookingrequestfullvisitorid , bookingrequestmedium , bookingrequestwebsitereferralmediumsessionid , bookingrequestsource , calculatedvisitid , calculatedfullvisitorid , calculatedbookingmedium , calculatedbookingwebsitereferralmediumsessionid , calculatedbookingsource \n        ) select\n            r.arrivaldate ,\n            r.createdate ,\n            r.bookingcategoryid ,\n            bookingdateid = null ,\n            bookingreporteddateid = r.bookingreporteddate ,\n            cancelleddateid = null ,\n            f.brandid ,\n            f.listingunitid ,\n            r.reservationid ,\n            f.siteid ,\n            f.traveleremailid ,\n            f.visitorid ,\n            f.onlinebookingprovidertypeid ,\n            f.reservationavailabilitystatustypeid ,\n            f.reservationpaymentstatustypeid ,\n            f.devicecategorysessionid ,\n            r.inquiryserviceentryguid ,\n            f.inquiryid ,\n            f.customerid ,\n            f.listingid ,\n            brandcurrencycode = 'unk' ,\n            f.regionid ,\n            bookednightscount = 0 ,\n            f.brandattributesid ,\n            f.customerattributesid ,\n            f.listingattributesid ,\n            f.listingunitattributesid ,\n            f.subscriptionid ,\n            f.paymenttypeid ,\n            f.listingchannelid ,\n            f.persontypeid ,\n            bookingcount = 0 ,\n            f.bookingvaluesourceid ,\n            f.displayregionid ,\n            rentalamount = 0 ,\n            refundabledamagedepositamount = 0 ,\n            servicefeeamount = 0 ,\n            taxamount = 0 ,\n            vasamount = 0 ,\n            orderamount = 0 ,\n            paidamount = 0 ,\n            refundamount = 0 ,\n            bookingvalue = 0 ,\n            f.localcurrencyid ,\n            f.currencyconversionidusd ,\n            f.currencyconversionidbrandcurrency ,\n            commissionamount = 0 ,\n            bookingchannelid = f.bookingchannelid ,\n            paymentmethodtypeid = f.paymentmethodtypeid ,\n            paidamountoffline = 0 ,\n            paidamountonline = 0 ,\n            f.strategicdestinationid ,\n            f.strategicdestinationattributesid ,\n            f.visitid ,\n            f.fullvisitorid ,\n            f.websitereferralmediumsessionid ,\n            f.inquiryvisitid ,\n            f.inquiryfullvisitorid ,\n            f.inquirymedium ,\n            f.inquirywebsitereferralmediumsessionid ,\n            f.inquirysource ,\n            f.bookingrequestvisitid ,\n            f.bookingrequestfullvisitorid ,\n            f.bookingrequestmedium ,\n            f.bookingrequestwebsitereferralmediumsessionid ,\n            f.bookingrequestsource ,\n            f.calculatedvisitid ,\n            f.calculatedfullvisitorid ,\n            f.calculatedbookingmedium ,\n            f.calculatedbookingwebsitereferralmediumsessionid ,\n            f.calculatedbookingsource \n        from\n            tmpReservation r \n        inner join\n            tmpBookingfact f \n                on r.reservationid = f.reservationid \n                and r.createdate = f.reservationcreatedateid \n        where\n            r.createdate >= @rollingtwoyears \n            and (\n                r.activeflag = 0 \n                or (\n                    r.activeflag = 1 \n                    and r.bookingcategoryid = 1 \n                ) \n            ) \n            and r.dwupdatedatetime between @startdate and @enddate \n            and f.bookingcount = 1\n\n\n",
+    "alias" : "df45",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step46",
+    "desc" : "step46",
+    "expression" : "\n    select\n        coalesce ( i.visitid,\n        0 ) as bf.inquiryvisitid,\n        coalesce ( i.fullvisitorid,\n        '[unknown]' ) as bf.inquiryfullvisitorid,\n        wrms.websitereferralmedium  as bf.inquirymedium,\n        wrms.websitereferralmediumsessionid  as bf.inquirywebsitereferralmediumsessionid \n    from\n        #final bf \n    inner join\n        tmpInquiryslafact i \n            on i.inquiryid = bf.inquiryid \n    inner join\n        tmpWebsitereferralmediumsession wrms \n            on wrms.websitereferralmediumsessionid = i.websitereferralmediumsessionid \n    where\n        bf.inquirymedium <> wrms.websitereferralmedium \n        or bf.inquirywebsitereferralmediumsessionid <> wrms.websitereferralmediumsessionid\n\n\n",
+    "alias" : "df46",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step47",
+    "desc" : "step47",
+    "expression" : "\n    select\n        vf.source  as bf.inquirysource \n    from\n        #final bf \n    inner join\n        tmpInquiryslafact i \n            on i.inquiryid = bf.inquiryid \n    inner join\n        tmpVisitorfact vf \n            on vf.dateid = cast ( format ( i.inquirydate ,\n        'yyyymmdd' ) as int ) \n        and vf.visitid = i.visitid \n        and vf.fullvisitorid = i.fullvisitorid \n    where\n        bf.inquirysource <> vf.source\n\n\n",
+    "alias" : "df47",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step48",
+    "desc" : "step48",
+    "expression" : "\n    select\n        fq.reservationid ,\n        fq.quoteid \n    into\n        #firstquote \n    from\n        ( select\n            qf.reservationid ,\n            qf.quoteid ,\n            rownum = row_number ( ) over ( partition \n        by\n            q.reservationid \n        order by\n            qf.quoteid ) \n        from\n            #final bf \n        inner join\n            tmpQuotefact qf \n                on qf.reservationid = bf.reservationid \n        inner join\n            tmpQuote q \n                on qf.quoteid = q.quoteid \n        inner join\n            tmpReservation r \n                on qf.reservationid = r.reservationid \n        where\n            qf.reservationid > -1 \n            and q.bookingtypeid in (\n                2 , 3 \n            ) -- \"quote & hold\" \n            and \"online booking\" \n            and r.activeflag = 1 ) fq \n    where\n        fq.rownum = 1 exec dw_config.dbo.pr_etlcontrollog_insert @etlcontrolid , 'create #firstquote' , @@rowcount\n\n\n",
+    "alias" : "df48",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step49",
+    "desc" : "step49",
+    "expression" : "\n    select\n        ms.reservationid ,\n        ms.quoteid ,\n        ms.visitid ,\n        ms.fullvisitorid ,\n        ms.websitereferralmediumsessionid \n    into\n        #maxsession \n    from\n        ( select\n            mq.reservationid ,\n            qfa.quoteid ,\n            qfa.visitid ,\n            qfa.fullvisitorid ,\n            qfa.websitereferralmediumsessionid ,\n            rownum = row_number ( ) over ( partition \n        by\n            mq.reservationid \n        order by\n            qfa.websitereferralmediumsessionid desc ) \n        from\n            #firstquote mq \n        inner join\n            tmpQuotefact qfa \n                on mq.quoteid = qfa.quoteid ) ms \n    where\n        ms.rownum = 1 exec dw_config.dbo.pr_etlcontrollog_insert @etlcontrolid , 'create #maxsession' , @@rowcount\n\n\n",
+    "alias" : "df49",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step50",
+    "desc" : "step50",
+    "expression" : "\n    select\n        * \n    into\n        #session \n    from\n        ( select\n            br.* ,\n            vf.source ,\n            vf.visitstarttime ,\n            rownum = row_number ( ) over ( partition \n        by\n            br.reservationid \n        order by\n            vf.visitstarttime desc ) \n        from\n            #maxsession br \n        inner join\n            tmpQuotefact qf \n                on qf.reservationid = br.reservationid \n                and qf.quoteid = br.quoteid \n                and qf.websitereferralmediumsessionid = br.websitereferralmediumsessionid \n        left join\n            tmpVisitorfact vf \n                on qf.visitid = vf.visitid \n                and qf.fullvisitorid = vf.fullvisitorid \n                and qf.quotecreateddate = vf.visitdate ) fs \n    where\n        fs.rownum = 1\n\n\n",
+    "alias" : "df50",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step51",
+    "desc" : "step51",
+    "expression" : "\n    select\n        coalesce ( s.visitid,\n        0 ) as bf.bookingrequestvisitid,\n        coalesce ( s.fullvisitorid,\n        '[unknown]' ) as bf.bookingrequestfullvisitorid,\n        wrms.websitereferralmedium  as bf.bookingrequestmedium,\n        wrms.websitereferralmediumsessionid  as bf.bookingrequestwebsitereferralmediumsessionid,\n        coalesce ( s.source,\n        '[n/a]' ) as bf.bookingrequestsource \n    from\n        #final bf \n    inner join\n        #session s \n            on s.reservationid = bf.reservationid \n    inner join\n        tmpWebsitereferralmediumsession wrms \n            on s.websitereferralmediumsessionid = wrms.websitereferralmediumsessionid \n    where\n        bf.bookingrequestwebsitereferralmediumsessionid = -1\n\n\n",
+    "alias" : "df51",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step52",
+    "desc" : "step52",
+    "expression" : "\n    select\n        bf.reservationid ,\n        bookingwebsitereferralmediumsessionid = bf.websitereferralmediumsessionid ,\n        bookingmediumcase = wrms.marketingmedium ,\n        bookingmediumsource = coalesce ( vf.source ,\n        '[n/a]' ) \n    into\n        #bookingmedium \n    from\n        #final bf \n    inner join\n        tmpWebsitereferralmediumsession wrms \n            on wrms.websitereferralmediumsessionid = bf.websitereferralmediumsessionid \n    left join\n        tmpVisitorfact vf \n            on bf.visitid = vf.visitid \n            and bf.fullvisitorid = vf.fullvisitorid \n            and bf.bookingdateid = vf.visitdate\n\n\n",
+    "alias" : "df52",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step53",
+    "desc" : "step53",
+    "expression" : "\n    select\n        bf.reservationid ,\n        bookingrequestmediumcase = wrmsbr.marketingmedium ,\n        inquirymediumcase = wrmsi.marketingmedium \n    into\n        #othermediums \n    from\n        #final bf \n    inner join\n        tmpWebsitereferralmediumsession wrmsbr \n            on wrmsbr.websitereferralmediumsessionid = bf.bookingrequestwebsitereferralmediumsessionid \n    inner join\n        tmpWebsitereferralmediumsession wrmsi \n            on wrmsi.websitereferralmediumsessionid = bf.inquirywebsitereferralmediumsessionid\n\n\n",
+    "alias" : "df53",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step54",
+    "desc" : "step54",
+    "expression" : "\n    select\n        bf.visitid  as bf.calculatedvisitid,\n        bf.fullvisitorid  as bf.calculatedfullvisitorid,\n        bm.bookingmediumcase  as bf.calculatedbookingmedium,\n        bm.bookingmediumsource  as bf.calculatedbookingsource,\n        bm.bookingwebsitereferralmediumsessionid  as bf.calculatedbookingwebsitereferralmediumsessionid \n    from\n        #final bf \n    inner join\n        #bookingmedium bm \n            on bm.reservationid = bf.reservationid\n\n\n",
+    "alias" : "df54",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step55",
+    "desc" : "step55",
+    "expression" : "\n    select\n        bf.bookingrequestvisitid  as bf.calculatedvisitid,\n        bf.bookingrequestfullvisitorid  as bf.calculatedfullvisitorid,\n        om.bookingrequestmediumcase  as bf.calculatedbookingmedium,\n        bf.bookingrequestsource  as bf.calculatedbookingsource,\n        bf.bookingrequestwebsitereferralmediumsessionid  as bf.calculatedbookingwebsitereferralmediumsessionid \n    from\n        #final bf \n    inner join\n        #othermediums om \n            on om.reservationid = bf.reservationid \n    where\n        bf.calculatedbookingmedium = 'undefined' \n        and om.bookingrequestmediumcase <> 'undefined'\n\n\n",
+    "alias" : "df55",
+    "cache" : "false",
+    "datasource" : "spark"
+  }, {
+    "id" : 0,
+    "name" : "step56",
+    "desc" : "step56",
+    "expression" : "\n    select\n        bf.inquiryvisitid  as bf.calculatedvisitid,\n        bf.inquiryfullvisitorid  as bf.calculatedfullvisitorid,\n        om.inquirymediumcase  as bf.calculatedbookingmedium,\n        bf.inquirysource  as bf.calculatedbookingsource,\n        bf.inquirywebsitereferralmediumsessionid  as bf.calculatedbookingwebsitereferralmediumsessionid \n    from\n        #final bf \n    inner join\n        #othermediums om \n            on om.reservationid = bf.reservationid \n    where\n        bf.calculatedbookingmedium = 'undefined' \n        and om.inquirymediumcase <> 'undefined'\n\n\n",
+    "alias" : "df56",
+    "cache" : "false",
+    "datasource" : "spark"
+  } ]
+}

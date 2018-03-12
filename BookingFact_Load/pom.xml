@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.homeaway.dataanalytics</groupId>
+    <artifactId>BookingFact_Load</artifactId>
+    <version>${proj.version}</version>
+    <packaging>jar</packaging>
+
+    <name>BookingFact_Load</name>
+    <url>http://maven.apache.org</url>
+
+    <!-- ==================== HA Nexus Repos ==================== -->
+
+    <distributionManagement>
+        <!-- this is where binaries are deployed -->
+        <repository>
+            <id>homeaway-repository</id>
+            <name>HomeAway Services Nexus Repo</name>
+            <url>http://...:8081/nexus/content/repositories/releases</url>
+        </repository>
+
+        <!-- NOTE: the uniqueVersion element tells Maven to keep only a single version of a SNAPSHOT -->
+        <snapshotRepository>
+            <id>homeaway-snapshots</id>
+            <name>HomeAway Services Snapshot Nexus Repo</name>
+            <url>http://...:8081/nexus/content/repositories/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>homeaway-repository</id>
+            <name>HomeAway Services Nexus Repo</name>
+            <url>http://.../maven</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>homeaway</id>
+            <name>homeaway</name>
+            <layout>default</layout>
+            <url>http://.../maven</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>scala</id>
+            <name>Scala Tools</name>
+            <url>http://scala-tools.org/repo-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <scm>
+        <url>https://.../AnalyticsEngineering/ae-data-migration-template</url>
+        <connection>scm:git:ssh://git@.../AnalyticsEngineering/ae-data-migration-template.git</connection>
+        <developerConnection>scm:git:ssh://git@.../AnalyticsEngineering/ae-data-migration-template.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+
+    <!-- ==================== Parent ==================== -->
+    <!-- TODO: build a parent POM for ae-eagle jars -->
+    <parent>
+        <groupId>com.homeaway.omnihub</groupId>
+        <artifactId>omnitask-parent</artifactId>
+        <version>1.0.2</version>
+    </parent>
+
+    <properties>
+        <proj.version>0.0.1</proj.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <slf4j.version>1.7.16</slf4j.version>
+        <lombok.version>1.16.12</lombok.version>
+        <spring.version>4.2.6.RELEASE</spring.version>
+        <spark.version>2.0.0</spark.version>
+        <tez.version>0.7.0</tez.version>
+    </properties>
+
+    <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>com.homeaway.dataanalytics</groupId>-->
+            <!--<artifactId>ae-data-migration</artifactId>-->
+            <!--<version>1.0.1-SNAPSHOT</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>com.homeaway.dataanalytics</groupId>
+            <artifactId>ae-data-loader</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.homeaway.omnihub</groupId>
+            <artifactId>omnitask-libs</artifactId>
+            <version>1.0.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-core_2.11</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.twitter</groupId>
+                    <artifactId>chill_2.11</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.twitter</groupId>
+                    <artifactId>chill-java</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.databricks</groupId>
+                    <artifactId>spark-avro_2.11</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.coursera</groupId>
+                    <artifactId>metrics-datadog</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.microsoft.sqlserver</groupId>
+                    <artifactId>sqljdbc4</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>log4j-over-slf4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>sqljdbc4</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <!-- ==================== Scala ==================== -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <scope>provided</scope>
+            <version>2.11.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-xml</artifactId>
+            <scope>provided</scope>
+            <version>2.11.0-M4</version>
+        </dependency>
+
+
+        <!-- ==================== Cassandra connector ==================== -->
+        <!--  jars with provided scope will be provided in $LIB_DIR folder from edge node for spark-submit-->
+        <dependency>
+            <groupId>com.datastax.spark</groupId>
+            <artifactId>spark-cassandra-connector_2.11</artifactId>
+            <version>2.0.0-M3</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-core</artifactId>
+            <version>3.3.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.7</version>
+        </dependency>
+
+        <!-- ==================== Spring dependencies ==================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.4.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- ==================== Spark dependencies ==================== -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.11</artifactId>
+            <version>${spark.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_2.11</artifactId>
+            <scope>provided</scope>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>${spark.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- ==================== Logging dependencies ==================== -->
+
+        <!-- slf4j Logging API -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/config</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/data</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!-- Uncomment this section in your POM's to build a fat jar with all dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <!--<version>2.6.0</version>-->
+                <configuration>
+                    <!-- some configuration -->
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

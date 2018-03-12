@@ -1,0 +1,28 @@
+#!/usr/bin/env groovy
+
+import com.homeaway.dataanalytics.jenkins.groovy.AEUtils;
+
+
+
+properties ([
+        buildDiscarder(logRotator(daysToKeepStr: '15', numToKeepStr: '20')),
+        disableConcurrentBuilds()
+])
+
+AEUtils utils = new AEUtils(this)
+
+node ("legacy-sbt") {
+
+    stage('Setup scm') {
+        deleteDir()
+        checkout scm
+    }
+
+    stage('Build and test artifacts'){
+        def optionalParams = [
+            artifactGlobs: ["**/*.jar"],
+            doS3Publish: false
+        ]
+        utils.minimalBuild(env, optionalParams)
+    }
+}
