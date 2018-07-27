@@ -14,6 +14,7 @@ import com.homeaway.datatech.forgetme.model.ForgetmeKafkaMessageAck
 import com.homeaway.datatech.forgetme.model.enums.ResponsesType
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
+import kafka.api.TopicMetadata
 
 
 class Kafka extends Logging {

@@ -1,6 +1,3 @@
-import sbtassembly.AssemblyKeys.assembly
-import sbtassembly.PathList
-
 name := "ae-utils"
 
 organization := "com.homeaway.analyticsengineering"
@@ -38,7 +35,7 @@ libraryDependencies += "org.apache.commons" % "commons-email" % "1.4"
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.16.0"
 
 
-val sparkVersion = "2.2.0"
+val sparkVersion = "2.3.0"
 
 val sparkDependencyScope = "provided"
 

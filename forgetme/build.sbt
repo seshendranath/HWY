@@ -8,8 +8,6 @@ publishMavenStyle := true
 
 organization := "com.homeaway.analyticsengineering"
 
-resolvers += "HA Maven Snapshots" at "http://mvn-repo.wvrgroup.internal:8081/nexus/content/repositories/snapshots"
-resolvers += "HA Maven Releases" at "http://mvn-repo.wvrgroup.internal:8081/nexus/content/repositories/releases"
 resolvers += "confluent" at "http://packages.confluent.io/maven/"
 
 crossPaths := false
@@ -25,11 +23,10 @@ libraryDependencies ++= Seq(
 	"com.microsoft.sqlserver" % "mssql-jdbc" % "6.2.1.jre8",
 	"log4j" % "log4j" % "1.2.17",
 	"com.github.nscala-time" %% "nscala-time" % "2.16.0",
-	"org.apache.kafka" % "kafka-clients" % "0.11.0.1-cp1",
-	"com.homeaway.commons" % "hacommons-kafka-jackson-avro" % "0.7",
-	"com.typesafe.play" %% "play-json" % "2.5.12",
-	"com.homeaway" % "forgetme-api" % forgetMeAPIVersion,
-	"com.homeaway" % "forgetme-client-okhttp" % forgetMeAPIVersion
+	"org.apache.kafka" % "kafka-clients" % "1.1.0",
+	"org.apache.kafka" %% "kafka" % "1.1.0",
+	"org.apache.spark" %% "spark-streaming-kafka" % "1.6.3",
+	"com.typesafe.play" %% "play-json" % "2.5.12"
 )
 
 
